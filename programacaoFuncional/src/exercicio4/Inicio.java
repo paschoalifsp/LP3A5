@@ -25,33 +25,6 @@ public class Inicio {
 				listAvaliacoes.stream().filter(av -> av.getNota() >=6).forEach(av -> System.out.println(av.getAluno()));
 				
 				
-//				List<Pessoa> listPessoas2 = Arrays.asList(new Pessoa("Eduardo", 29),
-//						new Pessoa("Luiz", 32), new Pessoa("Bruna", 26));
-//						Collections.sort(listPessoas2, (Pessoa pessoa1, Pessoa pessoa2)
-//						-> pessoa1.getNome().compareTo(pessoa2.getNome()));
-//						listPessoas2.forEach(p -> System.out.println(p.getNome()));
-//
-//				
-//				
-//				
-//				 
-//				.stream()
-//					.limit(7)
-//					.filter(e -> e % 2 == 0)
-//					.map(e -> e * 2)
-//					.forEach(System.out::println);
-//			
-		
-//		Thread t = new Thread(()->{
-//			try {
-//				for (int i=0; i<6; i++){
-//					System.out.println(nome + " contador " + i);
-//					Thread.sleep(tempo);
-//				}
-//			} catch (InterruptedException e) { e.printStackTrace(); }
-//			System.out.println(nome + " terminou a execução");
-//		});
-//		t.start();
 
 	}
 
