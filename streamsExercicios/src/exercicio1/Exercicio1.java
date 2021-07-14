@@ -3,6 +3,8 @@ package exercicio1;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Exercicio1 {
 
@@ -25,36 +27,33 @@ public class Exercicio1 {
 		System.out.println("Entre com um numero: ");
 		int n = sc.nextInt();
 
-		List<Integer> numbers = new ArrayList<Integer>();
-
-		for(int i = 0; i <= n; i++) {
-			numbers.add(i);
-			numbers.add(i);
-		}
+		List<Integer[]> numbers = Stream.iterate(new Integer[]{1, 1}, e -> new Integer[]{e[0]+1, e[1]+1})
+		.limit(n)
+		.collect(Collectors.toList());
 		
 		System.out.println("Mostre todos os números: ");
 
-		numbers.stream().forEach(e -> System.out.println(e));
+		numbers.stream().flatMap(e -> Stream.of(e)).forEach(e -> System.out.println(e));
 		
 		System.out.println("números sem repetição ");
 		
-		numbers.stream().distinct().forEach(e -> System.out.println(e));
+		numbers.stream().flatMap(e -> Stream.of(e)).distinct().forEach(e -> System.out.println(e));
 		
 		System.out.println("números ímpares sem repetição");
 		
-		numbers.stream().distinct().filter(e -> e%2 ==1).forEach(e -> System.out.println(e));
+		numbers.stream().flatMap(e -> Stream.of(e)).distinct().forEach(e -> System.out.println(e));
 		
 		System.out.println("números pares sem repetição");
 		
-		numbers.stream().distinct().filter(e -> e%2 ==0).forEach(e -> System.out.println(e));
+		numbers.stream().flatMap(e -> Stream.of(e)).distinct().filter(e -> e % 2 ==0).forEach(e -> System.out.println(e));
 		
 		System.out.println("Mostre todos os números a partir do 5 algarismo sem repetição");
 		
-		numbers.stream().skip(5).forEach(e -> System.out.println(e));
+		numbers.stream().flatMap(e -> Stream.of(e)).skip(5).forEach(e -> System.out.println(e));
 		
 		System.out.println("Mostre todos os números multiplicados por 4 ");
 		
-		numbers.stream().map(e -> e*4).forEach(e -> System.out.println(e));
+		numbers.stream().flatMap(e -> Stream.of(e)).distinct().map(e -> e*4).forEach(e -> System.out.println(e));
 
 	}
 
